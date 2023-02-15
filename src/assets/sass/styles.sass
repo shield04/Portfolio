@@ -1,0 +1,490 @@
+//Importar fuentes custom
+@font-face
+    font-family: "Roboto"
+    src: url("fonts/Roboto-Regular.ttf")
+
+@font-face
+    font-family: "RobotoL"
+    src: url("fonts/Roboto-Light.ttf")
+
+//Declaracion de variables mas usadas en la hoja de estilos
+
+$background-body: #0ea786
+$background-body-secundary: #edf4f6
+$font-primary: "Roboto"
+$font-secundary: "RobotoL"
+$font-color-primary: #FFF
+$primary: #2dc5a4
+$primary-dark: #0ea786
+$black: #323333
+$black2: #2A2B2B
+$white: #f5f9fa
+$white2: #ebf3f5
+$gray3: #4B4C4D
+$button-color: #FF4A4A
+$button-color-second: #f87878
+
+//mixins
+@mixin titleBlack()
+    text-transform: uppercase
+    color: $black2
+    font-size: 2rem
+    font-weight: 500
+    letter-spacing: 0.9rem
+    margin: 2rem
+@mixin titleWhite()
+    text-transform: uppercase
+    color: $white
+    font-size: 2rem
+    font-weight: 500
+    letter-spacing: 0.9rem
+    margin: 2rem
+
+//Generales
+*
+    margin: 0px
+    padding: 0px
+html
+    background: $background-body-secundary//linear-gradient(($white),($white2))
+    overflow-x: hidden
+
+body
+    //background:  //#edf4f6
+    font-family: $font-primary
+    //color: $font-color-primary 
+    font-size: 14px
+    text-align: center
+    //overflow-x: hidden
+/*.clearfix
+    float: none
+    clear: both*/
+.layout 
+  width: 100%
+  height: auto
+
+  display: grid
+  grid-template-areas: "header header header header" "nav nav nav nav" "menu menu menu menu" "content content content content" "footer footer footer footer"
+  grid-template-rows: auto //100px 100px auto 70px
+
+//header y bacground inicial
+header
+    grid-area: header
+    //width: 100%
+    height: 283px
+    background: linear-gradient(($black),($black2))
+    overflow: hidden
+    padding: 5rem 0 3rem
+    position: relative
+    font-family: $font-secundary
+    color: $font-color-primary
+header video
+    left: 50%
+    min-height: 100%
+    min-width: 100%
+    opacity: 0
+    position: absolute
+    top: 50%
+    transform: translate(-50%,-50%)
+.contenedor-video-texto .texto
+    display: inline-block
+    padding: 20px 60px
+    border-radius: 5px
+    text-align: center
+    line-height: 1
+    background-color: rgba(255, 255, 255, 0.1)
+    backdrop-filter: blur(20px)
+    opacity: 0
+.animain
+    font-size: 1.2em
+    text-transform: uppercase
+    overflow: hidden
+    opacity: 0
+    #anitext
+        display: inline-block
+        transform: translateX(100%)
+    #hranimate
+        margin-top: 1rem
+        margin-bottom: 1rem
+        background-image: linear-gradient(to right,transparent,($white),transparent)
+        border: 0
+        height: 0.1rem
+        max-width: 100%
+        transform: translateX(-100%)
+    p #anitext
+        display: inline-block
+        transform: translateY(100%)
+.circle
+    border-radius: 50%
+    width: 70px
+    height: 70px
+    margin-bottom: 10px
+
+#svg-container
+    #icon_frist
+        width: 80px
+        border-radius: 50%
+        margin-bottom: 15px
+        #laptop
+            display: inline-block
+            transform: translateY(100%)
+        #fondoPc
+            //opacity: 0
+        #menorQue
+            opacity: 0
+        #mayorQue
+            opacity: 0
+
+// Barra de navegazion
+nav
+     grid-area: nav 
+#navbar
+    box-shadow: 0 0 10px 1px ($gray3)
+    background: linear-gradient($primary,($primary-dark))
+#navbar div
+    display: flex
+    justify-content: space-between
+#navbar div a
+    align-items: center
+    color: #323333
+    display: flex
+    padding: 1rem
+    text-decoration: none
+#navbar #smalltext:hover
+    color: #fff
+    transition: color 0.3s ease
+#navbar div img
+    width: 20px
+    height: 20px
+    border-radius: 50%
+    margin-right: 0.5rem
+#navbar button
+    background-color: transparent
+    border: none
+    color: $white
+    cursor: pointer
+    font-size: 1.5rem
+    margin: 0.7rem
+    padding: 0.2rem 0.7rem
+#navbar.open button
+    //background-color: $black
+    border-radius: 2rem
+    color: $white 
+#navbar.open ul
+    max-height: 226px
+#navbar.close ul
+    max-height: 0
+#navbar.navbar-fixed
+    position: fixed
+    top: 0
+    width: 100%
+    z-index: 100
+#navbar ul
+    background: linear-gradient(($primary),($primary-dark))
+    border-top: 1px solid rgba(255,255,255,.1)
+    margin: 0
+    max-height: 0
+    z-index: 15
+    overflow: hidden
+    padding: 0
+    position: absolute
+    width: 100%
+    transition: max-height .6s ease
+#navbar ul li
+    list-style: none
+    padding: 0
+#navbar ul a:hover
+    background-color: $white
+    color: $black
+#navbar ul a
+    color: $white
+    display: block
+    padding: 10px 15px
+    text-decoration: none
+    font-size: 15px
+    transition: color .3s ease,background-color .3s ease
+//Main
+main
+    grid-area: content
+main.active
+    margin-top: 56.3438px
+main.inactive
+    margin-top: 0px
+//Seccion1
+section
+    padding-bottom: 3rem
+    padding-top: 3rem
+    hr
+        margin-bottom: 5rem
+        background-image: linear-gradient(to right,transparent,($primary),transparent)
+        border: 0
+        height: 0.1rem
+        max-width: 100%
+
+#about
+    #title h1
+            @include titleBlack()
+    .about-me
+        max-width: 35%
+        margin: 0 auto
+        .profile-photo
+            width: 170px
+            border: 5px solid #fff
+            border-radius: 50%
+            box-shadow:  rgba(0,0,0,0.8) 0px 0 10px
+            margin: 0 auto
+            margin-bottom: 22px
+        p
+            font-size: 17px
+            text-align: justify
+
+#portfolio
+    h1
+        @include titleBlack()
+
+    .about
+        width: 70%
+        margin: 0px auto
+        margin-bottom: 20px
+        font-size: 23px
+        p
+            padding-top: 20px
+            padding-bottom: 30px
+            text-align: justify
+            color: red
+.even
+    hr
+        background-image: linear-gradient(to right,transparent,($white),transparent)
+#skillset
+    background: linear-gradient(($primary),($primary-dark))
+    h1
+        @include titleWhite()
+    span
+        background-color: rgba(0,0,0,.75)
+        border-radius: 0.5rem
+        color: $white
+        left: 50%
+        opacity: 0
+        padding: 0.5rem
+        pointer-events: none
+        position: absolute
+        text-align: center
+        top: -40px
+        transform: translate(-66px,10px)
+        transition: opacity .3s ease,transform .3s ease
+        width: 120px
+        z-index: 1
+    span:after 
+        border: 5px solid transparent
+        border-top-color: rgba(0,0,0,.75)
+        content: ""
+        left: 50%
+        margin-left: -5px
+        position: absolute
+        top: 100%
+#logo
+    width: 200px
+    height: 200px
+#grip-skillset
+    display: grid
+    grid-template-columns: 1fr 1fr 1fr 1fr
+    grid-gap: 1rem
+    margin: 1rem
+    div
+          position: relative
+    div:hover span
+        opacity: 1
+        transform: translate(-66px, -5px)
+
+
+#grip-skillset
+    img
+        cursor: context-menu
+        max-width: 7rem
+
+//Seccion/con/formulario
+
+.container
+    padding: 50px
+    padding-top: 10px
+    text-align: left
+    h2
+        text-transform: uppercase
+        color: $black
+        font-size: 2rem
+        padding-bottom: 2rem
+form
+    width: 50%
+    label
+        display: block
+        width: 100%
+        margin-top: 2rem
+        margin-bottom: 1rem
+    input[type="text"], input[type="number"], input[type="email"], textarea
+        width: 100%
+        height: 2rem
+    button, input[type="submit"]
+        display: block
+        font-size: 17px
+        padding: 5px
+        margin-top: 15px
+        color: $white
+        background: $button-color
+        border-radius: 0.5rem
+        border: 1px solid rgb(13,67 ,133 ,1 )
+        cursor: pointer
+    button:hover, input[type="submit"]:hover
+        background: $button-color-second
+        border: 1px solid rgb(13,67 ,133 ,1 )
+    input[disabled]
+        opacity: 0.4
+        cursor: not-allowed
+
+    span
+        font-size: 13px
+        padding: 5px
+        color: #FF4A4A
+.message
+    width: 50%
+    padding: 5px
+    border: 1px solid #eee
+.success
+    background: green
+    color: $white
+.message a
+    color: $white
+.failed
+    background: red
+    color: $white
+//PaginaDeProyectos
+.flex-container
+    display: flex
+    flex-flow: row wrap
+    justify-content: center
+    padding: 0
+    #divImage
+        width: 25rem
+        height: 18.75rem
+        margin: 0.600rem
+        background-size: 25rem 18.75rem
+        background-repeat: no-repeat
+        #divInfo
+            position: absolute
+            overflow: hidden
+            width: 25rem
+            height: 18.75rem
+            background-color: #21b998c0
+            transition: opacity .2s
+            opacity: 0
+            cursor: pointer
+        #textoanimado
+            position: absolute
+            margin-top: 1.875rem
+            transition: margin .7s
+            margin-left: -7.5rem
+            font-size: 21px
+            color: $white
+        #textodos
+            margin: auto
+            width: 21.8rem
+            text-align: center
+            transition: margin .9s
+            margin-top: 19.5rem
+            font-size: 21px
+            color: $white
+    #divImage:hover #divInfo
+        opacity: 1
+    #divImage:hover #textoanimado
+        margin-left: 3rem
+    #divImage:hover #textodos
+        margin-top: 12rem
+//Modal
+
+.dialog
+    hr
+        margin-top: 1rem
+        margin-bottom: 1rem
+        background-image: linear-gradient(to right,transparent,($primary),transparent)
+        border: 0
+        height: 0.1rem
+        max-width: 100%
+.mat-button
+    background: #f87878
+    transition: all .3s ease
+    color: $white
+.mat-button:hover
+    background: #FF4A4A
+#contact
+    background: linear-gradient(($primary),($primary-dark))
+    color: $white
+    h1
+        @include titleWhite()
+    form
+        margin: 0 auto
+        font-size: 1.2rem
+        margin-bottom: 23px
+        input[type="text"], input[type="tel"], input[type="email"], textarea
+            background-color: rgba(0,0,0,.1)
+            font-size: 100%
+            border: none
+            box-shadow: none
+            color: $black
+            cursor: pointer
+            margin: 1rem 0 2rem
+            padding: 1rem
+            width: 100%
+        span
+            background: #f87878
+            border-radius: 5px
+            color: $black
+        button
+            background-color: $button-color-second
+            border: none
+            border-radius: 15px
+            cursor: pointer
+            margin: 0 auto
+            padding: 1rem
+            transition: background-color .3s ease
+        button:hover
+            background-color: $button-color
+
+.contactt
+    width: 50%
+    margin: 0 auto
+    padding: 5px
+    font-size: 20px
+.thanks
+    color: $white
+.failed
+    background: red
+    color: $white
+
+#detail
+    h1
+        @include titleBlack()
+#detail
+    .media
+        img
+            width: 45%
+#social-media
+    img
+        width: 40px
+        background-color: $white
+        border-radius: 50%
+        margin: 1rem
+        transition: all .3s ease
+    img:hover
+        background-color: #069
+footer
+    grid-area: footer
+    background: linear-gradient(($black), ($black2))
+    padding: 2rem 0
+    color: $white
+
+@media (max-width: 720px)
+    .about-me
+        max-width: 75% !important
+        margin: 0 auto !important
+
+@media (max-width: 528px)
+    #navbar ul
+       position: relative

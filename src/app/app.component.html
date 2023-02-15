@@ -1,0 +1,51 @@
+<div class="layout">
+  <header>
+    <div class="contenedor-video-texto">
+      <video autoplay loop muted defaultmuted playsinline id="bg-video">
+        <source src="../assets/img/header_video2.mp4" type="video/mp4">
+      </video>
+      <div class="texto">
+        <app-svg></app-svg>
+        <div class="animain">
+          <h1><span id="anitext">juan david losada</span></h1>
+          <hr id="hranimate" />
+          <p><span id="anitext">Front-end Developer</span></p>
+        </div>
+      </div>
+    </div>
+  </header>
+  <nav id="navbar" (scroll)="onscroll()" [ngClass]="{'navbar-fixed':navfixed, 'open': open, 'close': !open}">
+    <div>
+      <a href="/">
+        <img src="../assets/img/pcLogo2.svg">
+        <span id="smalltext">
+          Juan David Losada
+          <small>&nbsp;Front-end Developer</small>
+        </span>
+      </a>
+      <button id="hamburger" (click)="openNav()"><app-svg-burger></app-svg-burger></button>
+    </div>
+    <ul>
+      <li><a class="btn-menu" href="#about">About me</a></li>
+      <li><a class="btn-menu" href="#skillset">Skillset</a></li>
+      <li><a class="btn-menu" href="#portfolio">Portfolio</a></li>
+      <li><a class="btn-menu" href="#contact">Contact</a></li>
+
+    <!--<li><a [routerLink]="['/sobre-mi']">About me</a></li>
+    <li><a [routerLink]="['/projects']">Projects</a></li>
+    <li><a [routerLink]="['/crear-proyecto']">Make a Project</a></li>
+    <li><a [routerLink]="['/skillset']">Skillset</a></li>
+    <li><a [routerLink]="['/contact']">Contact</a></li>-->
+    </ul>
+  </nav>
+  <main [className]="isActive ? 'active' : 'inactive'">
+    <app-about></app-about>
+    <app-skillset></app-skillset>
+    <app-projects></app-projects>
+    <app-contact></app-contact>
+    <!--<router-outlet></router-outlet>-->
+  </main>
+  <footer>
+    <small>Developed and designed by Juan David Losada. &copy;2022. All rights reserved.</small>
+  </footer>
+</div>

@@ -1,0 +1,43 @@
+<section id="contact" class="even">
+    <h1>contact</h1>
+    <hr>
+    <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" method="POST">
+        <label for="name">Name:
+            <input type="text" name="name" #name="ngModel" [(ngModel)]="contact.name" required/>
+            <span *ngIf="name.touched && !name.valid">
+                Name is required
+            </span>
+        </label>
+        <label for="phone">Phone:
+            <input type="tel" name="phone" #phone="ngModel" [(ngModel)]="contact.phone" required/>
+            <span *ngIf="phone.touched && !phone.valid">
+                Phone is required
+            </span>
+        </label>
+        <label for="email">Email:
+            <input type="email" name="email" #email="ngModel" [(ngModel)]="contact.email" required/>
+            <span *ngIf="email.touched && !email.valid">
+                Email is required
+            </span>
+        </label>
+        <label for="message">Message:
+            <textarea name="message" #message="ngModel" [(ngModel)]="contact.message" required></textarea>
+            <span *ngIf="message.touched && !message.valid">
+                Message is required
+            </span>
+        </label>
+        <button type="submit" [disabled]="!contactForm.form.valid">Send</button>
+    </form>
+    <div class="contactt thanks" *ngIf="status == 'success'">
+        Thanks for contacting me
+    </div>
+    
+    <div class="contactt failed" *ngIf="status =='failed'">
+        Intentalo de nuevo 
+    </div>
+    <nav id="social-media">
+        <a href="https://www.linkedin.com/in/juan-david-losada-bustamante-b15a4a141">
+            <img id="linkedin" src="assets/img/linkedin_ico.svg">
+        </a>
+    </nav>
+</section>

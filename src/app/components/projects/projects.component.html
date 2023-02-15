@@ -1,0 +1,33 @@
+<section id="portfolio">
+    <h1>portfolio</h1>
+    <hr/>
+    <div class="flex-container">
+        <div *ngFor="let project of projects">
+            <a (click)="openDialog(project)">
+                <div id="divImage" *ngIf="project.image"
+                    [ngStyle]="{'background-image': 'url('+url+'get-image/'+project.image+')'}">
+                    <div id="divInfo">
+                        <p id="textoanimado">{{project.name}}</p>
+                        <p id="textodos">{{project.category}}</p>
+                    </div>
+                </div>
+            </a>
+         </div> 
+    </div>
+    
+</section>
+<!--
+<div class="flex-container">
+        <div *ngFor="let project of projects">
+            <a (click)="openDialog(project)">
+                <div id="divImage" *ngIf="project.image"
+                    [ngStyle]="{'background-image': 'url('+url+'get-image/'+project.image+')'}">
+                    <div id="divInfo">
+                        <p id="textoanimado">{{project.name}}</p>
+                        <p id="textodos">{{project.category}}</p>
+                    </div>
+                </div>
+            </a>
+         </div> 
+    </div>
+-->

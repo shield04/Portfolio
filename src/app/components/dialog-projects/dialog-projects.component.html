@@ -1,0 +1,16 @@
+<div class="dialog">
+    <h1 mat-dialog-title>{{result.name}}</h1>
+    <p>
+        <strong>Technologies:</strong> {{result.langs}}
+    </p>
+    <hr/>
+    <div mat-dialog-content class="dialogContent">
+      <img src="http://localhost:3700/api/get-image/{{result.image}}"/>
+      <hr/>
+      <p [ngStyle]="{'text-align': 'justify'}">{{result.description}}</p>  
+    </div>
+    <div mat-dialog-actions align="center">
+        <button mat-button (click)="onClickNo()">Close</button>
+        <!--<button mat-button [mat-dialog-close]="true">Ok</button>-->
+    </div>
+</div>
